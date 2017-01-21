@@ -59,10 +59,3 @@ const std::list<NetworkLoad::Data> &NetworkLoad::getInfo() const
 {
   return _info;
 }
-
-int main()
-{
-  NetworkLoad *test;
-
-  test->update();
-}
