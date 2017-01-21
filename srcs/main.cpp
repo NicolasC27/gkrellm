@@ -1,1 +1,6 @@
-int main(){}
+#include "../includes/modules/System.hpp"
+
+int main()
+{
+  System sys;
+}

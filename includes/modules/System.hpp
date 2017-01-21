@@ -11,15 +11,29 @@
 #ifndef SYSTEM_HPP
 # define SYSTEM_HPP
 
-#include <string>
-#include <iostream>
-#include <sys/utsname.h>
+# include "../../includes/modules/IMonitorModule.hpp"
+# include <string>
+# include <iostream>
+# include <fstream>
 
-class System
+class System : public IMonitorModule
 {
+private:
+  std::string _vkernel;
+  std::string _osname;
+  bool isEnabled;
+
+
 public:
   System();
-  ~System();
+  virtual ~System();
+
+  std::string getVersion();
+  std::string getOSVersion();
+
+  virtual bool		getStatus() const;
+  virtual std::string	getName() const;
+  virtual std::string   getDescription() const;
 };
 
 #endif // SYSTEM_HPP

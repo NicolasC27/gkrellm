@@ -5,13 +5,13 @@
 ## Login   <debout_l@epitech.net>
 ## 
 ## Started on  Sat Jan 21 11:22:35 2017 Lucas Debouté
-## Last update Sat Jan 21 14:40:11 2017 Lucas Debouté
+## Last update Sat Jan 21 15:30:16 2017 Lucas Debouté
 ##
 
 CC	= g++
 RM	= rm -f
 
-CFLAGS	= -Wall -Wextra -std=c++03
+CFLAGS	= -Wall -Wextra -std=c++03 -I ./includes
 
 NAME	= gkrellm
 
