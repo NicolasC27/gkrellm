@@ -21,7 +21,8 @@ class IMonitorDisplay
 {
 public:
   virtual		~IMonitorDisplay() {};
-  virtual DisplayType	getStatus() = 0;
+  virtual DisplayType	getType();
+  virtual bool		getStatus() = 0;
   virtual std::string	getDisplayName() = 0;
   virtual int		size() = 0;
 };
