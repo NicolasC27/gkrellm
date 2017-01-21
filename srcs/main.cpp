@@ -1,22 +1,25 @@
-/*#include <QApplication>
-#include <QPushButton>
-#include <QProgressBar>*/
 #include "../includes/modules/Date.hpp"
+#include "../includes/modules/Battery.hpp"
+#include "../includes/modules/Ram.hpp"
+#include "../includes/modules/Cpu.hpp"
+#include "../includes/modules/System.hpp"
+#include "../includes/modules/User.hpp"
+
 
 int main(int argc, char *argv[])
-
 {
-  Date dateuhh;
-  /*  QApplication app(argc, argv);
+  if (argc == 2 &&
+      argv[1][0] == '-' &&
+      (argv[1][1] == 'T' || argv[1][1] == 'G') &&
+      !argv[1][2])
+  {
 
- 
-
-    QPushButton bouton("Salut les Zéros, la forme ?");
-
-    bouton.show();
-
- 
-
-    return app.exec();*/
-
+  }
+  else
+  {
+    std::cout << "Error : Bad usage." << std::endl << std::endl <<
+                 "Usage : ./gkrellm <displaytype>" << std::endl <<
+                 " -G  : Graphical mod" << std::endl <<
+                 " -T  : Terminal mod" << std::endl;
+  }
 }
