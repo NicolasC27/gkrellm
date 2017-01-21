@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sat Jan 21 18:41:49 2017 Manon Lacommare
+// Last update Sat Jan 21 21:54:17 2017 Manon Lacommare
 //
 
 #include "Cpu.hpp"
@@ -18,6 +18,7 @@ Cpu::Cpu()
   this->setModel();
   this->setFrequency();
   this->setNbCores();
+  this->setActivity();
 }
 
 Cpu::~Cpu() {}
@@ -27,9 +28,10 @@ Cpu::Cpu(const Cpu & other)
   this->name = other.name;
   this->desc = other.desc;
   this->status = other.status;
-  this->model = getModel();
-  this->frequency = getFrequency();
-  this->nbCores = getNbCores();
+  this->model = other.getModel();
+  this->frequency = other.getFrequency();
+  this->nbCores = other.getNbCores();
+  this->percent = other.getActivity();
 }
 
 Cpu &		Cpu::operator=(const Cpu & other)
@@ -39,9 +41,10 @@ Cpu &		Cpu::operator=(const Cpu & other)
       this->name = other.name;
       this->desc = other.desc;
       this->status = other.status;
-      this->model = getModel();
-      this->frequency = getFrequency();
-      this->nbCores = getNbCores();
+      this->model = other.getModel();
+      this->frequency = other.getFrequency();
+      this->nbCores = other.getNbCores();
+      this->percent = other.getActivity();
     }
   return (*this);
 }
@@ -74,6 +77,11 @@ float		Cpu::getFrequency() const
 int		Cpu::getNbCores() const
 {
   return (this->nbCores);
+}
+
+float		Cpu::getActivity() const
+{
+  return (this->percent);
 }
 
 void		Cpu::setModel()
@@ -122,4 +130,70 @@ void		Cpu::setNbCores()
       this->nbCores = atoi(line.c_str());
       file.close();
     }
+}
+
+void		Cpu::setActivity()
+{
+  setPrevParams();
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  setParams();
+  this->percent = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
+}
+
+void		Cpu::setPrevParams()
+{
+  std::ifstream	file;
+  std::string	line;
+  std::string	user;
+  std::string	nice;
+  std::string	sys;
+  std::string	idle;
+  int		total;
+
+  file.open("/proc/stat");
+  if (file.is_open())
+    {
+      getline(file, line);
+      line = line.substr(5, line.size() - 5);
+      user = line.substr(0, line.find(" "));
+      line = line.substr(line.find(" ") + 1, line.size());
+      nice = line.substr(0, line.find(" "));
+      line = line.substr(line.find(" ") + 1, line.size());
+      sys = line.substr(0, line.find(" "));
+      line = line.substr(line.find(" ") + 1, line.size());
+      idle = line.substr(0, line.find(" "));
+      file.close();
+    }
+  total = atoi(user.c_str()) + atoi(nice.c_str()) + atoi(sys.c_str()) + atoi(idle.c_str());
+  this->previdle = atoi(idle.c_str());
+  this->prevtotal = total;
+}
+
+void		Cpu::setParams()
+{
+  std::ifstream	file;
+  std::string	line;
+  std::string	user;
+  std::string	nice;
+  std::string	sys;
+  std::string	idle;
+  int		total;
+
+  file.open("/proc/stat");
+  if (file.is_open())
+    {
+      getline(file, line);
+      line = line.substr(5, line.size() - 5);
+      user = line.substr(0, line.find(" "));
+      line = line.substr(line.find(" ") + 1, line.size());
+      nice = line.substr(0, line.find(" "));
+      line = line.substr(line.find(" ") + 1, line.size());
+      sys = line.substr(0, line.find(" "));
+      line = line.substr(line.find(" ") + 1, line.size());
+      idle = line.substr(0, line.find(" "));
+      file.close();
+    }
+  total = atoi(user.c_str()) + atoi(nice.c_str()) + atoi(sys.c_str()) + atoi(idle.c_str());
+  this->idle = atoi(idle.c_str());
+  this->total = total;
 }

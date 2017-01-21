@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sat Jan 21 18:35:49 2017 Manon Lacommare
+// Last update Sat Jan 21 21:55:34 2017 Manon Lacommare
 //
 
 #ifndef CPU_HPP_
@@ -14,9 +14,11 @@
 # include <string>
 # include <fstream>
 # include <cstdlib>
-//# include "IMonitorModule.hpp"
+# include <thread>
+# include <chrono>
+# include "IMonitorModule.hpp"
 
-class			Cpu //: public IMonitorModule
+class			Cpu : public IMonitorModule
 {
   std::string		name;
   std::string		desc;
@@ -24,6 +26,11 @@ class			Cpu //: public IMonitorModule
   std::string		model;
   float			frequency;
   int			nbCores;
+  int			prevtotal;
+  int			previdle;
+  int			total;
+  int			idle;
+  float			percent;
 
 public:
   Cpu();
@@ -37,9 +44,13 @@ public:
   std::string		getModel() const;
   float			getFrequency() const;
   int			getNbCores() const;
+  float			getActivity() const;
   void			setModel();
   void			setFrequency();
   void			setNbCores();
+  void			setActivity();
+  void			setPrevParams();
+  void			setParams();
 };
 
 # endif /* !__CPU_HPP__ */
