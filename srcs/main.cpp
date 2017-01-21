@@ -1,8 +1,22 @@
-#include "../includes/modules/System.hpp"
-#include "../includes/modules/Battery.hpp"
+#include <QApplication>
+#include <QPushButton>
+#include <QProgressBar>
+#include "includes/modules/Date.hpp"
 
-int main()
+int main(int argc, char *argv[])
+
 {
-  System sys;
-  Battery bat;
+  Date dateuhh;
+    QApplication app(argc, argv);
+
+ 
+
+    QPushButton bouton("Salut les Zéros, la forme ?");
+
+    bouton.show();
+
+ 
+
+    return app.exec();
+
 }

@@ -17,6 +17,7 @@ class Date : public IMonitorModule
   {
   private:
     std::string _date;
+    std::string _time;
     std::string _name;
     std::string _description;
     bool        _isEnable;
@@ -31,8 +32,9 @@ class Date : public IMonitorModule
     void         setStatus(bool status);
     virtual std::string  getName() const;
     virtual std::string  getDescription() const;
-    std::string  getDate() const;
+    std::string  getDate();
     void         setDate(std::string date);
+    std::string getTime();
   };
 
 #endif /* DATE_HPP */

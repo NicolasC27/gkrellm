@@ -10,16 +10,11 @@
 
 #include <iostream>
 #include <ctime>
+#include <string>
+#include <fstream>
 #include "../../includes/modules/Date.hpp"
 
-static std::string getTime()
-{
-   time_t now = time(0);
-   char* dt = ctime(&now);
-   return dt;
-}
-
-Date::Date() : _date(getTime()), _name("Date"), _description("Date and Time module"), _isEnable(true) {}
+Date::Date() : _date(getDate()), _time(getTime()), _name("Date"), _description("Date and Time module"), _isEnable(true) {}
 
 Date::Date(const Date &other)
 {
@@ -41,7 +36,6 @@ Date& Date::operator=(const Date &other)
 
 Date::~Date() {}
 
-
 std::string Date::getName() const
 {
   return this->_name;
@@ -62,9 +56,39 @@ std::string Date::getDescription() const
   return this->_description;
 }
 
-std::string Date::getDate() const
+std::string Date::getDate()
 {
-  return this->_date;
+  std::string tmp;
+
+  std::ifstream file(std::string("/proc/driver/rtc"), std::ifstream::in);
+  if (file.is_open())
+  {
+    while (file.good() && tmp.find("rtc_date") != 0)
+    {
+      std::getline(file, tmp);
+    }
+  }
+  else { this->setStatus(false); }
+  tmp = tmp.substr(tmp.find(":") + 2);
+  return (tmp);
+}
+
+
+std::string Date::getTime()
+{
+  std::string tmp;
+
+  std::ifstream file(std::string("/proc/driver/rtc"), std::ifstream::in);
+  if (file.is_open())
+  {
+    while (file.good() && tmp.find("rtc_time") != 0)
+    {
+      std::getline(file, tmp);
+    }
+  }
+  else { this->setStatus(false); }
+  tmp = tmp.substr(tmp.find(":") + 2);
+  return (tmp);
 }
 
 void Date::setDate(std::string date)
