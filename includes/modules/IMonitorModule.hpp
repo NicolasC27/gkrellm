@@ -16,9 +16,10 @@
 class IMonitorModule
 {
 public:
-  virtual		~IMonitorModule() {};
-  virtual bool		getStatus() = 0;
-  virtual std::string	getName() = 0;
+  virtual		~IMonitorModule() {}
+  virtual bool		getStatus() const = 0;
+  virtual std::string	getName() const = 0;
+  virtual std::string   getDescription() const = 0;
 };
 
 #endif /* IMONITORMODULE_HPP_ */
