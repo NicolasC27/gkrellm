@@ -10,6 +10,8 @@
 
 #ifndef RAM_HPP_
 # define RAM_HPP_
+
+# include "../../includes/modules/IMonitorModule.hpp"
 # include <iostream>
 # include <string>
 # include <fstream>

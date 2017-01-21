@@ -8,7 +8,7 @@
 // Last update Sat Jan 21 16:31:11 2017 valentin gerard
 //
 
-#include "User.hpp"
+#include "../../includes/modules/User.hpp"
 
 User::User()
 {
@@ -77,7 +77,7 @@ void		User::setUserName()
   file.open("/etc/passwd");
   if (file.is_open())
     {
-      while (file != '\0')
+      while (!file.eof())
 	{
 	  getline(file, line);
 	  ++i;

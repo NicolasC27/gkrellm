@@ -10,6 +10,8 @@
 
 #ifndef USER_HPP_
 # define USER_HPP_
+
+# include "../../includes/modules/IMonitorModule.hpp"
 # include <iostream>
 # include <string>
 # include <fstream>

@@ -8,9 +8,7 @@
 // Last update Sat Jan 21 15:34:47 2017 Lucas Debouté
 //
 
-
 #include "../../includes/modules/System.hpp"
-
 
 //C&D
 System::System()
