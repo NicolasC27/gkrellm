@@ -5,7 +5,7 @@
 ## Login   <debout_l@epitech.net>
 ## 
 ## Started on  Sat Jan 21 11:22:35 2017 Lucas Debouté
-## Last update Sat Jan 21 15:30:16 2017 Lucas Debouté
+## Last update Sat Jan 21 18:00:14 2017 Lucas Debouté
 ##
 
 CC	= g++
@@ -15,8 +15,11 @@ CFLAGS	= -Wall -Wextra -std=c++03 -I ./includes
 
 NAME	= gkrellm
 
-SRCS	= srcs/main.cpp \
-	  srcs/modules/System.cpp
+SRCS	= srcs/main.cpp 		\
+	  srcs/modules/System.cpp 	\
+	  srcs/modules/Date.cpp 	\
+	  srcs/modules/User.cpp 	\
+	  srcs/modules/Ram.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

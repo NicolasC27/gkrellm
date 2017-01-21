@@ -8,7 +8,7 @@
 // Last update Sat Jan 21 16:50:23 2017 Manon Lacommare
 //
 
-#include "Ram.hpp"
+#include "../../includes/modules/Ram.hpp"
 
 Ram::Ram()
 {
