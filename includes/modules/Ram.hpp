@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 12:14:00 2017 Manon Lacommare
-// Last update Sat Jan 21 16:53:00 2017 Manon Lacommare
+// Last update Sat Jan 21 17:56:55 2017 Manon Lacommare
 //
 
 #ifndef RAM_HPP_
@@ -26,13 +26,13 @@ class			Ram : public IMonitorModule
 
 public:
   Ram();
-  ~Ram();
+  virtual ~Ram();
   Ram(const Ram &);
   Ram &			operator=(const Ram &);
 
-  std::string		getName() const;
-  std::string		getDesc() const;
-  bool			getStatus() const;
+  virtual std::string	getName() const;
+  virtual std::string	getDesc() const;
+  virtual bool		getStatus() const;
   int			getTotalRam() const;
   int			getAvailRam() const;
   int			getOccupRam() const;
