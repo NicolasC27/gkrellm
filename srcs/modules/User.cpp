@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 11:34:18 2017 Manon Lacommare
-// Last update Sat Jan 21 15:33:02 2017 Manon Lacommare
+// Last update Sat Jan 21 16:31:11 2017 valentin gerard
 //
 
 #include "User.hpp"
@@ -13,6 +13,7 @@
 User::User()
 {
   this->name = "User";
+  this->status = true;
   this->desc = "Module machine name and user name";
   this->setUserName();
   this->setMachineName();
@@ -23,6 +24,7 @@ User::~User() {}
 User::User(const User & other)
 {
   this->name = other.name;
+  this->status = other.status;
   this->desc = other.name;
   this->userName = other.getUserName();
   this->machineName = other.getMachineName();
@@ -33,6 +35,7 @@ User &		User::operator=(const User & other)
   if (&other != this)
     {
       this->name = other.name;
+      this->status = other.status;
       this->desc = other.name;
       this->userName = other.getUserName();
       this->machineName = other.getMachineName();
