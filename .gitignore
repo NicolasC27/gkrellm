@@ -3,3 +3,5 @@
 .idea/
 cmake-build-debug/
 CMakeLists.txt
+cpp_gkrellm.pro
+cpp_gkrellm.pro.user
