@@ -26,6 +26,8 @@ private:
 
 public:
   System();
+  System(System const &other);
+  System &operator=(System const &other);
   virtual ~System();
 
   std::string getVersion();

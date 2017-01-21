@@ -20,6 +20,21 @@ System::System()
   this->_osname = getOSVersion();
 }
 
+System::System(System const &other)
+{
+  this->isEnabled = other.isEnabled;
+  this->_vkernel = other._vkernel;
+  this->_osname = other._osname;
+}
+
+System &System::operator=(System const &other)
+{
+  this->isEnabled = other.isEnabled;
+  this->_vkernel = other._vkernel;
+  this->_osname = other._osname;
+  return *this;
+}
+
 std::string System::getVersion()
 {
   std::string version;
@@ -27,7 +42,6 @@ std::string System::getVersion()
   std::ifstream file(std::string("/proc/sys/kernel/osrelease"), std::ifstream::in);
   if (file.is_open()) { std::getline(file, version); }
   else { this->isEnabled = false; }
-
   return (version);
 }
 
