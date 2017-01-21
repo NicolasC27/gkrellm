@@ -1,13 +1,13 @@
-#include <QApplication>
+/*#include <QApplication>
 #include <QPushButton>
-#include <QProgressBar>
-#include "includes/modules/Date.hpp"
+#include <QProgressBar>*/
+#include "../includes/modules/Date.hpp"
 
 int main(int argc, char *argv[])
 
 {
   Date dateuhh;
-    QApplication app(argc, argv);
+  /*  QApplication app(argc, argv);
 
  
 
@@ -17,6 +17,6 @@ int main(int argc, char *argv[])
 
  
 
-    return app.exec();
+    return app.exec();*/
 
 }
