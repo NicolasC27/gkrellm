@@ -9,7 +9,7 @@
 //
 
 #ifndef __IMONITORMODULE_HPP_
-# define __IMONITORMOFULE_HPP_
+# define __IMONITORMODULE_HPP_
 
 # include <string>
 
