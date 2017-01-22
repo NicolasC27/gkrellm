@@ -11,6 +11,7 @@
 #ifndef __IMONITORDISPLAY_HPP_
 # define __IMONITORDISPLAY_HPP_
 
+#define SLEEP 5000
 enum DisplayType
   {
     QT,

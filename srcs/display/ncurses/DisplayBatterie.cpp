@@ -38,7 +38,6 @@ void DisplayBatterie::run()
   setWprintw(window, "Battery: ");
   setWprintw(window, str.c_str());
   waddch(window, '%');
-
   setWprintw(window, "[");
   setWattron(window, COLOR_PAIR(2));
   for (int i = 0; i < (level / 2); i++)
@@ -52,7 +51,7 @@ void DisplayBatterie::run()
   else
     setWprintw(window, "Unplugged ...");
   setWrefresh(window);
-  sleep(1);
+  usleep(SLEEP);
 }
 
 

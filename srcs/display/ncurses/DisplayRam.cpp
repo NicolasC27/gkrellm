@@ -2,7 +2,6 @@
 // Created by cheval_8 on 1/21/17.
 //
 #include "../../../includes/display/ncurses/DisplayRam.hpp"
-#include "../../../includes/display/ncurses/DisplayBatterie.hpp"
 #include "../../../includes/modules/Ram.hpp"
 #include <iomanip>
 #include <zconf.h>
@@ -47,6 +46,7 @@ void DisplayRam::run()
   str = temp_str.str();
   setWprintw(window, str.c_str());
   setWprintw(window, "GB ");
+  setWmove(window, 2, 23);
   setWprintw(window, "[");
 
   setWattron(window, COLOR_PAIR(2));
@@ -58,7 +58,7 @@ void DisplayRam::run()
   setWprintw(window, "]");
 
   setWrefresh(window);
-  sleep(1);
+  usleep(SLEEP);
 }
 
 
@@ -80,19 +80,4 @@ std::string DisplayRam::getDisplayName()
 int DisplayRam::getSize()
 {
   return 0;
-}
-
-
-int main()
-{
-
-  DisplayRam *ram = new DisplayRam();
-  DisplayBatterie *Batterie = new DisplayBatterie();
-
-  while (1)
-    {
-      Batterie->run();
-      ram->run();
-    }
-
 }
