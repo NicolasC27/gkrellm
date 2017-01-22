@@ -3,6 +3,7 @@
 #include "../includes/display/ncurses/DisplayUser.hpp"
 #include "../includes/display/ncurses/DisplayDate.hpp"
 #include "../includes/display/ncurses/DisplayRam.hpp"
+#include "../includes/display/ncurses/DisplayCPU.hpp"
 
 #include "../includes/modules/Date.hpp"
 #include "../includes/modules/Battery.hpp"
@@ -19,6 +20,7 @@ void exec_ncurses()
   DisplayNetwork *network = new DisplayNetwork();
   DisplayUser *user = new DisplayUser();
   DisplayDate *date = new DisplayDate();
+  DisplayCPU *cpu = new DisplayCPU();
 
   while (1)
     {
@@ -27,6 +29,7 @@ void exec_ncurses()
       network->run();
       user->run();
       date->run();
+      cpu->run();
     }
 
 }

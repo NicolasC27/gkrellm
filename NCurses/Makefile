@@ -5,7 +5,7 @@
 ## Login   <debout_l@epitech.net>
 ## 
 ## Started on  Sat Jan 21 11:22:35 2017 Lucas Debouté
-## Last update Sun Jan 22 08:46:47 2017 Nicolas Chevalier
+## Last update Sun Jan 22 09:46:48 2017 Nicolas Chevalier
 ##
 
 CC	= g++
@@ -24,6 +24,7 @@ SRCS	= srcs/main.cpp 		\
 	  srcs/modules/User.cpp 	\
 	  srcs/modules/Ram.cpp		\
 	  srcs/display/ncurses/DisplayRam.cpp \
+	  srcs/display/ncurses/DisplayCPU.cpp \
 	  srcs/display/ncurses/Ncurses.cpp \
 	  srcs/display/ncurses/DisplayBatterie.cpp \
 	  srcs/display/ncurses/DisplayNetwork.cpp \

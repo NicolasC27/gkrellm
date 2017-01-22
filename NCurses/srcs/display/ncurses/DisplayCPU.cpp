@@ -15,7 +15,7 @@
 
 DisplayCPU::DisplayCPU() : Ncurses(), _status(true)
 {
-  window = newwin(10, 30, 15, 120);
+  window = newwin(10, 80, 20, 0);
 }
 
 DisplayCPU::~DisplayCPU()
@@ -30,21 +30,71 @@ void DisplayCPU::run()
   double var2;
   double var3;
   double var4;
+  double res;
 
-  var1 = cpu.cpu[1];
-  var2 = cpu.cpu[2];
-  var3 = cpu.cpu[3];
-  var4 = cpu.cpu[4];
+  var1 = cpu.cpu[0];
+  var2 = cpu.cpu[1];
+  var3 = cpu.cpu[2];
+  var4 = cpu.cpu[3];
   setWclear(window);
   setBox(window, 0, 0);
   setWmove(window, 2, 1);
+
+  setWprintw(window, "CPU1: ");
   setWprintw(window, std::to_string(var1).c_str());
+  setWmove(window, 2, 18);
+  setWprintw(window, "[");
+  setWattron(window, COLOR_PAIR(2));
+  for (int i = 0; i < (var1 / 2); i++)
+    setWaddch(window, '|');
+  res = 100 - var1;
+  setWattroff(window, COLOR_PAIR(2));
+  for (int i = 0; i < (res / 2); i++)
+    setWaddch(window, '|');
+  setWprintw(window, "]");
+
   setWmove(window, 3, 1);
+  setWprintw(window, "CPU2: ");
   setWprintw(window, std::to_string(var2).c_str());
+  setWmove(window, 3, 18);
+  setWprintw(window, "[");
+  setWattron(window, COLOR_PAIR(2));
+  for (int i = 0; i < (var2 / 2); i++)
+    setWaddch(window, '|');
+  res = 100 - var2;
+  setWattroff(window, COLOR_PAIR(2));
+  for (int i = 0; i < (res / 2); i++)
+    setWaddch(window, '|');
+  setWprintw(window, "]");
+
   setWmove(window, 4, 1);
+  setWprintw(window, "CPU3: ");
   setWprintw(window, std::to_string(var3).c_str());
+  setWmove(window, 4, 18);
+  setWprintw(window, "[");
+  setWattron(window, COLOR_PAIR(2));
+  for (int i = 0; i < (var3 / 2); i++)
+    setWaddch(window, '|');
+  res = 100 - var3;
+  setWattroff(window, COLOR_PAIR(2));
+  for (int i = 0; i < (res / 2); i++)
+    setWaddch(window, '|');
+  setWprintw(window, "]");
+
   setWmove(window, 5, 1);
+  setWprintw(window, "CPU4: ");
   setWprintw(window, std::to_string(var4).c_str());
+  setWmove(window, 5, 18);
+  setWprintw(window, "[");
+  setWattron(window, COLOR_PAIR(2));
+  for (int i = 0; i < (var4 / 2); i++)
+    setWaddch(window, '|');
+  res = 100 - var4;
+  setWattroff(window, COLOR_PAIR(2));
+  for (int i = 0; i < (res / 2); i++)
+    setWaddch(window, '|');
+  setWprintw(window, "]");
+
   setWmove(window, 6, 1);
   setWrefresh(window);
   usleep(SLEEP);
