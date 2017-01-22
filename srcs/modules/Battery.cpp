@@ -15,59 +15,61 @@ Battery::Battery()
 {
   this->isEnabled = true;
   this->_blevel = getBatteryLevel();
-	this->_isPluged = getACStatus();
+  this->_isPluged = getACStatus();
 }
 
 Battery::Battery(Battery const &other)
 {
   this->isEnabled = other.isEnabled;
-  this->_blevel= other._blevel;
-	this->_isPluged = other._isPluged;
+  this->_blevel = other._blevel;
+  this->_isPluged = other._isPluged;
 }
 
 Battery &Battery::operator=(Battery const &other)
 {
   this->isEnabled = other.isEnabled;
   this->_blevel = other._blevel;
-	this->_isPluged = other._isPluged;
+  this->_isPluged = other._isPluged;
   return *this;
 }
 
 int Battery::getBatteryLevel()
 {
-	int level = 0;
+  int level = 0;
   std::string tmp;
 
   std::ifstream file(std::string("/sys/class/power_supply/BAT0/capacity"), std::ifstream::in);
   if (file.is_open())
-  {
-    std::getline(file, tmp);
-  }
+    {
+      std::getline(file, tmp);
+    }
   level = std::stoi(tmp);
   return (level);
 }
 
 
-bool		Battery::getACStatus()
+bool Battery::getACStatus()
 {
-	std::string tmp;
+  std::string tmp;
 
-	std::ifstream file(std::string("/sys/class/power_supply/AC/online"), std::ifstream::in);
-	if (file.is_open())
-	{
-		std::getline(file, tmp);
-		return (std::stoi(tmp));
-	}
-	else
-		return 0;
+  std::ifstream file(std::string("/sys/class/power_supply/AC/online"), std::ifstream::in);
+  if (file.is_open())
+    {
+      std::getline(file, tmp);
+      return (std::stoi(tmp));
+    } else
+    return 0;
 }
 
 //IMonitorModules
-bool		Battery::getStatus() const
+bool Battery::getStatus() const
 { return this->isEnabled; }
-std::string		Battery::getName() const
+
+std::string Battery::getName() const
 { return std::string("Battery"); }
-std::string		Battery::getDescription() const
+
+std::string Battery::getDescription() const
 { return std::string("Module who gives the battery level"); }
 
-Battery::~Battery(){}
+Battery::~Battery()
+{}
