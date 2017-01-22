@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
   {
     std::cout << "Error : Bad usage." << std::endl << std::endl <<
                  "Usage : ./gkrellm <displaytype>" << std::endl <<
-                 " -G  : Graphical mod" << std::endl <<
-                 " -T  : Terminal mod" << std::endl;
+                 " -G  : Graphical mode" << std::endl <<
+                 " -T  : Terminal mode" << std::endl;
   }
+  return 0;
 }

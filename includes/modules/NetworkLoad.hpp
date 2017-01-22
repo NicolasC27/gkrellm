@@ -13,25 +13,21 @@
 class NetworkLoad : public IMonitorModule
 {
  private:
-  typedef struct Data
-  {
-    std::string _Iface;
+  std::string _Iface;
 
-    size_t _MTUMET;
+  size_t _MTUMET;
 
-    size_t _RXOK;
-    size_t _RXERR;
-    size_t _RXDRP;
-    size_t _RXOVR;
+  size_t _RXOK;
+  size_t _RXERR;
+  size_t _RXDRP;
+  size_t _RXOVR;
 
-    size_t _TXOK;
-    size_t _TXDRP;
-    size_t _TXERR;
-    size_t _TXOVR;
-  } t_data;
+  size_t _TXOK;
+  size_t _TXDRP;
+  size_t _TXERR;
+  size_t _TXOVR;
 
-  std::list<Data>	_info;
-  bool			_status;
+  bool _status;
 
  public:
 
@@ -45,10 +41,27 @@ class NetworkLoad : public IMonitorModule
 
   std::string getDescription() const;
 
-  const std::list<Data> &getInfo() const;
-
   void update();
 
+  const std::string &getIface() const;
+
+  size_t getMTUMET() const;
+
+  size_t getRXOK() const;
+
+  size_t getRXERR() const;
+
+  size_t getRXDRP() const;
+
+  size_t getRXOVR() const;
+
+  size_t getTXOK() const;
+
+  size_t getTXDRP() const;
+
+  size_t getTXERR() const;
+
+  size_t getTXOVR() const;
 };
 
 

@@ -20,6 +20,7 @@ class Battery : public IMonitorModule
 {
 private:
   int _blevel;
+	bool _isPluged;
   bool isEnabled;
 
 public:
@@ -30,8 +31,9 @@ public:
 
   int getBatteryLevel();
 
-  virtual bool		getStatus() const;
-  virtual std::string	getName() const;
+	virtual bool					getStatus() const;
+	virtual bool					getACStatus();
+	virtual std::string		getName() const;
   virtual std::string   getDescription() const;
 };
 

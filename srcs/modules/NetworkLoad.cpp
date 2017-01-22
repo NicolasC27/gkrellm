@@ -19,23 +19,19 @@ void NetworkLoad::update()
 {
   std::ifstream file("/proc/net/dev", std::ifstream::in);
   std::string line;
-  t_data tmp;
 
 
   if (!file.good())
     _status = false;
   else
     {
-      for (int i = 0; i < 2; ++i)
+      for (int i = 0; i < 3; ++i)
 	std::getline(file, line);
 
-      while (!file.eof() && std::getline(file, line))
-	{
-	  std::istringstream os(line);
-	  os >> tmp._Iface >> tmp._MTUMET >> tmp._RXDRP >> tmp._RXERR >> tmp._RXOK >> tmp._RXOVR >> tmp._TXDRP
-	     >> tmp._TXERR >> tmp._TXOK >> tmp._TXOVR;
-	  _info.push_front(tmp);
-	}
+      std::getline(file, line);
+      std::istringstream os(line);
+      os >> _Iface >> _MTUMET >> _RXDRP >> _RXERR >> _RXOK >> _RXOVR >> _TXDRP
+	 >> _TXERR >> _TXOK >> _TXOVR;
     }
 }
 
@@ -55,7 +51,52 @@ std::string NetworkLoad::getDescription() const
   return std::string(NETWORK_MODULE_DESC);
 }
 
-const std::list<NetworkLoad::Data> &NetworkLoad::getInfo() const
+const std::string &NetworkLoad::getIface() const
 {
-  return _info;
+  return _Iface;
+}
+
+size_t NetworkLoad::getMTUMET() const
+{
+  return _MTUMET;
+}
+
+size_t NetworkLoad::getRXOK() const
+{
+  return _RXOK;
+}
+
+size_t NetworkLoad::getRXERR() const
+{
+  return _RXERR;
+}
+
+size_t NetworkLoad::getRXDRP() const
+{
+  return _RXDRP;
+}
+
+size_t NetworkLoad::getRXOVR() const
+{
+  return _RXOVR;
+}
+
+size_t NetworkLoad::getTXOK() const
+{
+  return _TXOK;
+}
+
+size_t NetworkLoad::getTXDRP() const
+{
+  return _TXDRP;
+}
+
+size_t NetworkLoad::getTXERR() const
+{
+  return _TXERR;
+}
+
+size_t NetworkLoad::getTXOVR() const
+{
+  return _TXOVR;
 }

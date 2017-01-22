@@ -20,11 +20,11 @@ enum DisplayType
 class IMonitorDisplay
 {
 public:
-  virtual		~IMonitorDisplay() {};
-  virtual DisplayType	getType();
+  virtual		~IMonitorDisplay() {}
+  virtual DisplayType	getType() const = 0;
   virtual bool		getStatus() = 0;
   virtual std::string	getDisplayName() = 0;
-  virtual int		size() = 0;
+  virtual int		getSize() = 0;
 };
 
 #endif /* !__IMONITORDISPLAY_HPP_ */
