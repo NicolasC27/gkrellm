@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sun Jan 22 02:12:28 2017 valentin gerard
+// Last update Sun Jan 22 02:48:35 2017 Manon Lacommare
 //
 
 #include "Cpu.hpp"
@@ -31,7 +31,10 @@ Cpu::Cpu(const Cpu & other)
   this->model = other.getModel();
   this->frequency = other.getFrequency();
   this->nbCores = other.getNbCores();
-  this->percent = other.getActivity();
+  this->cpu1 = other.getActivity();
+  this->cpu2 = other.getActivity();
+  this->cpu3 = other.getActivity();
+  this->cpu4 = other.getActivity();
 }
 
 Cpu &		Cpu::operator=(const Cpu & other)
@@ -44,7 +47,10 @@ Cpu &		Cpu::operator=(const Cpu & other)
       this->model = other.getModel();
       this->frequency = other.getFrequency();
       this->nbCores = other.getNbCores();
-      this->percent = other.getActivity();
+      this->cpu1 = other.getActivity();
+      this->cpu2 = other.getActivity();
+      this->cpu3 = other.getActivity();
+      this->cpu4 = other.getActivity();
     }
   return (*this);
 }
@@ -81,7 +87,7 @@ int		Cpu::getNbCores() const
 
 float		Cpu::getActivity() const
 {
-  return (this->percent);
+  return (this->cpu1);
 }
 
 void		Cpu::setModel()
@@ -134,13 +140,28 @@ void		Cpu::setNbCores()
 
 void		Cpu::setActivity()
 {
-  setPrevParams();
+  setPrevParams(1);
   std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  setParams();
-  this->percent = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
+  setParams(1);
+  this->cpu1 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
+  
+  setPrevParams(2);
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  setParams(2);
+  this->cpu2 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
+
+  setPrevParams(3);
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  setParams(3);
+  this->cpu3 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
+
+  setPrevParams(4);
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  setParams(4);
+  this->cpu4 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
 }
 
-void		Cpu::setPrevParams()
+void		Cpu::setPrevParams(int nbline)
 {
   std::ifstream	file;
   std::string	line;
@@ -149,11 +170,16 @@ void		Cpu::setPrevParams()
   std::string	sys;
   std::string	idle;
   int		total;
+  int		i = 0;
 
   file.open("/proc/stat");
   if (file.is_open())
     {
-      getline(file, line);
+      while (i <= nbline)
+	{
+	  getline(file, line);
+	  ++i;
+	}
       line = line.substr(5, line.size() - 5);
       user = line.substr(0, line.find(" "));
       line = line.substr(line.find(" ") + 1, line.size());
@@ -169,7 +195,7 @@ void		Cpu::setPrevParams()
   this->prevtotal = total;
 }
 
-void		Cpu::setParams()
+void		Cpu::setParams(int nbline)
 {
   std::ifstream	file;
   std::string	line;
@@ -178,11 +204,16 @@ void		Cpu::setParams()
   std::string	sys;
   std::string	idle;
   int		total;
+  int		i = 0;
 
   file.open("/proc/stat");
   if (file.is_open())
     {
-      getline(file, line);
+      while (i <= nbline)
+	{
+	  getline(file, line);
+	  ++i;
+	}
       line = line.substr(5, line.size() - 5);
       user = line.substr(0, line.find(" "));
       line = line.substr(line.find(" ") + 1, line.size());

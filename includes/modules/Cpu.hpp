@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sun Jan 22 02:12:49 2017 valentin gerard
+// Last update Sun Jan 22 02:48:02 2017 Manon Lacommare
 //
 
 #ifndef CPU_HPP_
@@ -30,7 +30,10 @@ class			Cpu : public IMonitorModule
   int			previdle;
   int			total;
   int			idle;
-  float			percent;
+  float			cpu1;
+  float			cpu2;
+  float			cpu3;
+  float			cpu4;
 
 public:
   Cpu();
@@ -49,8 +52,8 @@ public:
   void			setFrequency();
   void			setNbCores();
   void			setActivity();
-  void			setPrevParams();
-  void			setParams();
+  void			setPrevParams(int);
+  void			setParams(int);
 };
 
 # endif /* !__CPU_HPP__ */
