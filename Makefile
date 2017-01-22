@@ -5,7 +5,7 @@
 ## Login   <debout_l@epitech.net>
 ## 
 ## Started on  Sat Jan 21 11:22:35 2017 Lucas Debouté
-## Last update Sun Jan 22 04:24:14 2017 Lucas
+## Last update Sun Jan 22 04:58:18 2017 Lucas
 ##
 
 CC	= g++
@@ -17,7 +17,8 @@ NAME	= gkrellm
 
 SRCS	= srcs/main.cpp 		\
 	  srcs/modules/System.cpp 	\
-	  srcs/modules/Cpu.cpp 	\
+	  srcs/modules/Cpu.cpp 		\
+	  srcs/modules/Battery.cpp 	\
 	  srcs/modules/Date.cpp 	\
 	  srcs/modules/User.cpp 	\
 	  srcs/modules/Ram.cpp

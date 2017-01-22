@@ -15,24 +15,27 @@ Battery::Battery()
 {
   this->isEnabled = true;
   this->_blevel = getBatteryLevel();
+	this->_isPluged = getACStatus();
 }
 
 Battery::Battery(Battery const &other)
 {
   this->isEnabled = other.isEnabled;
   this->_blevel= other._blevel;
+	this->_isPluged = other._isPluged;
 }
 
 Battery &Battery::operator=(Battery const &other)
 {
   this->isEnabled = other.isEnabled;
   this->_blevel = other._blevel;
+	this->_isPluged = other._isPluged;
   return *this;
 }
 
 int Battery::getBatteryLevel()
 {
-  int level = 0;
+	int level = 0;
   std::string tmp;
 
   std::ifstream file(std::string("/sys/class/power_supply/BAT0/capacity"), std::ifstream::in);
@@ -42,6 +45,21 @@ int Battery::getBatteryLevel()
   }
   level = std::stoi(tmp);
   return (level);
+}
+
+
+bool		Battery::getACStatus()
+{
+	std::string tmp;
+
+	std::ifstream file(std::string("/sys/class/power_supply/AC/online"), std::ifstream::in);
+	if (file.is_open())
+	{
+		std::getline(file, tmp);
+		return (std::stoi(tmp));
+	}
+	else
+		return 0;
 }
 
 //IMonitorModules
