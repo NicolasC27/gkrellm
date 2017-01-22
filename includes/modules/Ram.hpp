@@ -15,7 +15,6 @@
 # include <iostream>
 # include <string>
 # include <fstream>
-# include <cstdlib>
 
 class			Ram : public IMonitorModule
 {
