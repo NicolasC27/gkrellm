@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>813</width>
+    <height>471</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TekMonitor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>images/monitor.ico</normaloff>images/monitor.ico</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #616161;</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>69</y>
+      <width>391</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>CPU</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>118</y>
+       <width>181</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar_2">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>118</y>
+       <width>171</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>75</y>
+       <width>181</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar_6">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>75</y>
+       <width>171</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_22">
+     <property name="geometry">
+      <rect>
+       <x>16</x>
+       <y>58</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CPU0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>58</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CPU1</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>17</x>
+       <y>102</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CPU2</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_25">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>102</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CPU3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_26">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>341</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>40</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>240</y>
+      <width>391</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>RAM</string>
+    </property>
+    <widget class="QProgressBar" name="progressBar_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>371</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>82</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>Used RAM :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>238</x>
+       <y>82</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>Free RAM :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>88</x>
+       <y>82</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>308</x>
+       <y>82</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>100</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>Total RAM :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>88</x>
+       <y>100</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>370</y>
+      <width>771</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>NETWORK</string>
+    </property>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>50</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>50</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>50</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>50</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>53</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Interface</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>30</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Receved packets</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>30</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Transmetted bytes</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>30</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Transmetted packets</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Receved bytes</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_27">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>301</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>DejaVu Sans Mono</family>
+      <pointsize>36</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>TekMonitor</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>90</y>
+      <width>361</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>COMPUTER INFO</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>30</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>50</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_28">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:black</string>
+     </property>
+     <property name="text">
+      <string>OS Version :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_29">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:black</string>
+     </property>
+     <property name="text">
+      <string>Kernel Version :</string>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar_4">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>90</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_34">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:black</string>
+     </property>
+     <property name="text">
+      <string>Battery level :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_35">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>86</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>images/plugged.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>260</y>
+      <width>361</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>USER INFO</string>
+    </property>
+    <widget class="QLabel" name="label_33">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>60</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:black</string>
+     </property>
+     <property name="text">
+      <string>Username :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_31">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>40</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_30">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:black</string>
+     </property>
+     <property name="text">
+      <string>Hostname :</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

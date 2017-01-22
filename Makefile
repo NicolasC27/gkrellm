@@ -1,46 +1,23 @@
 ##
-## Makefile for gkrellm in /home/debout_l/Pool/Rush/cpp_gkrellm
+## Makefile for yuu in /home/gerard_v/test/cpp_gkrellm
 ## 
-## Made by Lucas Debouté
-## Login   <debout_l@epitech.net>
+## Made by valentin gerard
+## Login   <gerard_v@epitech.net>
 ## 
-## Started on  Sat Jan 21 11:22:35 2017 Lucas Debouté
-## Last update Sun Jan 22 08:46:47 2017 Nicolas Chevalier
+## Started on  Sun Jan 22 09:29:19 2017 valentin gerard
+## Last update Sun Jan 22 09:41:09 2017 valentin gerard
 ##
 
-CC	= g++
-RM	= rm -f
+SUBDIRS = NCurses TekMonitor
 
-CFLAGS	= -Wall -Wextra -std=c++03 -I ./includes -g
+all:$(SUBDIRS)
 
-NAME	= gkrellm
+COMPILES: $(SUBDIRS)
+	cp TekMonitor/TekMonitor ./tekmonitor
+	cp NCurses/gkrellm ./
 
-SRCS	= srcs/main.cpp 		\
-	  srcs/modules/System.cpp 	\
-	  srcs/modules/Cpu.cpp 		\
-	  srcs/modules/Battery.cpp 	\
-	  srcs/modules/Date.cpp 	\
-	  srcs/modules/NetworkLoad.cpp 	\
-	  srcs/modules/User.cpp 	\
-	  srcs/modules/Ram.cpp		\
-	  srcs/display/ncurses/DisplayRam.cpp \
-	  srcs/display/ncurses/Ncurses.cpp \
-	  srcs/display/ncurses/DisplayBatterie.cpp \
-	  srcs/display/ncurses/DisplayNetwork.cpp \
-	  srcs/display/ncurses/DisplayUser.cpp \
-	  srcs/display/ncurses/DisplayDate.cpp \
+$(SUBDIRS):
+	$(MAKE) -C $@
 
-OBJS	= $(SRCS:.cpp=.o)
 
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -lncurses
-
-clean:
-	$(RM) $(OBJS)
-
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
+.PHONY: $(SUBDIRS)
