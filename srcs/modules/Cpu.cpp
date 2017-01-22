@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sun Jan 22 08:00:09 2017 Manon Lacommare
+// Last update Sun Jan 22 08:07:39 2017 Manon Lacommare
 //
 
 #include "../../includes/modules/Cpu.hpp"
@@ -163,8 +163,13 @@ void		Cpu::setActivity()
     {
       setParams(i);
       if((this->total == this->prevtotal[i]) || (this->val == this->prevval[i]))
-	continue;
+	{
+	  this->cpu[i] = 0;
+	  std::cout << this->cpu[i] << std::endl;
+	  continue;
+	}
       this->cpu[i] = (this->val - this->prevval[i]) / (this->total - this->prevtotal[i]) * 100;
+      std::cout << this->cpu[i] << std::endl;
     }
 }
 
