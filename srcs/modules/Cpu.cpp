@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sun Jan 22 07:10:39 2017 Manon Lacommare
+// Last update Sun Jan 22 07:28:05 2017 Manon Lacommare
 //
 
 #include "../../includes/modules/Cpu.hpp"
@@ -20,6 +20,10 @@ Cpu::Cpu()
   this->setNbCores();
   this->setNbCpu();
   this->cpu.resize(this->getNbCpu());
+  this->prevtotal.resize(this->getNbCpu());
+  this->prevval.resize(this->getNbCpu());
+  setPrevParams(this->getNbCpu());
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
   this->setActivity();
 }
 
@@ -157,12 +161,11 @@ void		Cpu::setActivity()
   this->setNbCpu();
   for (int i = this->getNbCpu(); i > 0; --i)
     {
-      setPrevParams(i);
-      std::this_thread::sleep_for(std::chrono::milliseconds(200));
       setParams(i);
-      if((this->total == this->prevtotal) || (this->val == this->prevval))
+      if((this->total == this->prevtotal[i]) || (this->val == this->prevval[i]))
 	continue;
-      this->cpu[i] = (int)(this->val - this->prevval) / (this->total - this->prevtotal) * 100;
+      this->cpu[i] = (this->val - this->prevval[i]) / (this->total - this->prevtotal[i]) * 100;
+      std::cout << "i : " << i << " " << this->cpu[i] << std::endl;
     }
 }
 
@@ -171,6 +174,7 @@ void		Cpu::setPrevParams(int nbline)
   std::ifstream	file;
   std::string	line;
   int		i = 0;
+  int		j = 0;
 
   file.open("/proc/stat");
   if (file.is_open())
@@ -178,19 +182,18 @@ void		Cpu::setPrevParams(int nbline)
       while (i <= nbline)
 	{
 	  getline(file, line);
-	  ++i;
-	}
-      line = line.substr(5, line.size() - 5);
-      this->prevtotal = (double)atol(line.substr(0, line.find(" ")).c_str());
-      line = line.substr(line.find(" ") + 1, line.size());
-      this->prevtotal += (double)atol(line.substr(0, line.find(" ")).c_str());
-      line = line.substr(line.find(" ") + 1, line.size());
-      this->prevval = this->prevtotal += (double)atol(line.substr(0, line.find(" ")).c_str());
-      i = 0;
-      while (i <= 6)
-	{
+	  line = line.substr(5, line.size() - 5);
+	  this->prevtotal[i] = (double)atol(line.substr(0, line.find(" ")).c_str());
 	  line = line.substr(line.find(" ") + 1, line.size());
-	  this->prevtotal += (double)atol(line.substr(0, line.find(" ")).c_str());
+	  this->prevtotal[i] += (double)atol(line.substr(0, line.find(" ")).c_str());
+	  line = line.substr(line.find(" ") + 1, line.size());
+	  this->prevval[i] = this->prevtotal[i] += (double)atol(line.substr(0, line.find(" ")).c_str());
+	  while (j <= 6)
+	    {
+	      line = line.substr(line.find(" ") + 1, line.size());
+	      this->prevtotal[i] += (double)atol(line.substr(0, line.find(" ")).c_str());
+	      ++j;
+	    }
 	  ++i;
 	}
     }

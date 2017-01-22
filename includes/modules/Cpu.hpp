@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sun Jan 22 07:07:20 2017 Manon Lacommare
+// Last update Sun Jan 22 07:25:24 2017 Manon Lacommare
 //
 
 #ifndef CPU_HPP_
@@ -27,8 +27,8 @@ class			Cpu : public IMonitorModule
   float			frequency;
   int			nbCores;
   int			nbCpu;
-  double		prevtotal;
-  double		prevval;
+  std::vector<double>	prevtotal;
+  std::vector<double>	prevval;
   double		total;
   double		val;
 
