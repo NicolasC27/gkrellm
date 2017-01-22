@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sun Jan 22 03:49:27 2017 Manon Lacommare
+// Last update Sun Jan 22 06:22:10 2017 Manon Lacommare
 //
 
 #ifndef CPU_HPP_
@@ -15,6 +15,7 @@
 # include <fstream>
 # include <thread>
 # include <chrono>
+# include <vector>
 # include "IMonitorModule.hpp"
 
 class			Cpu : public IMonitorModule
@@ -25,16 +26,14 @@ class			Cpu : public IMonitorModule
   std::string		model;
   float			frequency;
   int			nbCores;
-  int			prevtotal;
-  int			previdle;
-  int			total;
-  int			idle;
+  int			nbCpu;
+  double		prevtotal;
+  double		prevval;
+  double		total;
+  double		val;
 
 public:
-  double		cpu1;
-  double		cpu2;
-  double		cpu3;
-  double		cpu4;
+  std::vector<double>	cpu;
 
   Cpu();
   virtual ~Cpu();
@@ -47,10 +46,11 @@ public:
   std::string		getModel() const;
   float			getFrequency() const;
   int			getNbCores() const;
-  float			getActivity() const;
+  int			getNbCpu() const;
   void			setModel();
   void			setFrequency();
   void			setNbCores();
+  void			setNbCpu();
   void			setActivity();
   void			setPrevParams(int);
   void			setParams(int);

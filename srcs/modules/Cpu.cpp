@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sun Jan 22 02:48:35 2017 Manon Lacommare
+// Last update Sun Jan 22 06:57:56 2017 Manon Lacommare
 //
 
 #include "../../includes/modules/Cpu.hpp"
@@ -18,6 +18,8 @@ Cpu::Cpu()
   this->setModel();
   this->setFrequency();
   this->setNbCores();
+  this->setNbCpu();
+  this->cpu.resize(this->getNbCpu());
   this->setActivity();
 }
 
@@ -31,10 +33,7 @@ Cpu::Cpu(const Cpu & other)
   this->model = other.getModel();
   this->frequency = other.getFrequency();
   this->nbCores = other.getNbCores();
-  this->cpu1 = other.getActivity();
-  this->cpu2 = other.getActivity();
-  this->cpu3 = other.getActivity();
-  this->cpu4 = other.getActivity();
+  this->cpu = other.cpu;
 }
 
 Cpu &		Cpu::operator=(const Cpu & other)
@@ -47,10 +46,7 @@ Cpu &		Cpu::operator=(const Cpu & other)
       this->model = other.getModel();
       this->frequency = other.getFrequency();
       this->nbCores = other.getNbCores();
-      this->cpu1 = other.getActivity();
-      this->cpu2 = other.getActivity();
-      this->cpu3 = other.getActivity();
-      this->cpu4 = other.getActivity();
+      this->cpu = other.cpu;
     }
   return (*this);
 }
@@ -85,9 +81,9 @@ int		Cpu::getNbCores() const
   return (this->nbCores);
 }
 
-float		Cpu::getActivity() const
+int		Cpu::getNbCpu() const
 {
-  return (this->cpu1);
+  return (this->nbCpu);
 }
 
 void		Cpu::setModel()
@@ -138,38 +134,44 @@ void		Cpu::setNbCores()
     }
 }
 
+void		Cpu::setNbCpu()
+{
+  std::ifstream	file;
+  std::string	line;
+  int		i = -1;
+
+  file.open("/proc/stat");
+  if (file.is_open())
+    {
+      while (getline(file, line))
+	{
+	  if (line.find("cpu") != line.npos)
+	    ++i;
+	}
+      file.close();
+    } 
+  this->nbCpu = i;
+}
 void		Cpu::setActivity()
 {
-  setPrevParams(1);
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  setParams(1);
-  this->cpu1 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
-  
-  setPrevParams(2);
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  setParams(2);
-  this->cpu2 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
-
-  setPrevParams(3);
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  setParams(3);
-  this->cpu3 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
-
-  setPrevParams(4);
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  setParams(4);
-  this->cpu4 = 100 * ((this->total - this->prevtotal) - (this->idle - this->previdle)) / (this->total - this->prevtotal);
+  this->setNbCpu();
+  for (int i = this->getNbCpu(); i > 0; --i)
+    {
+      setPrevParams(i);
+      do
+	{
+	  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+	  setParams(i);
+	}
+      while ((this->total == this->prevtotal) || (this->val == this->prevval));
+      this->cpu[i] = (this->val - this->prevval) / (this->total - this->prevtotal) * 100;
+    }
 }
 
 void		Cpu::setPrevParams(int nbline)
 {
   std::ifstream	file;
   std::string	line;
-  std::string	user;
-  std::string	nice;
-  std::string	sys;
-  std::string	idle;
-  int		total;
   int		i = 0;
 
   file.open("/proc/stat");
@@ -181,29 +183,25 @@ void		Cpu::setPrevParams(int nbline)
 	  ++i;
 	}
       line = line.substr(5, line.size() - 5);
-      user = line.substr(0, line.find(" "));
+      this->prevtotal = (double)atol(line.substr(0, line.find(" ")).c_str());
       line = line.substr(line.find(" ") + 1, line.size());
-      nice = line.substr(0, line.find(" "));
+      this->prevtotal += (double)atol(line.substr(0, line.find(" ")).c_str());
       line = line.substr(line.find(" ") + 1, line.size());
-      sys = line.substr(0, line.find(" "));
-      line = line.substr(line.find(" ") + 1, line.size());
-      idle = line.substr(0, line.find(" "));
-      file.close();
+      this->prevval = this->prevtotal += (double)atol(line.substr(0, line.find(" ")).c_str());
+      i = 0;
+      while (i <= 6)
+	{
+	  line = line.substr(line.find(" ") + 1, line.size());
+	  this->prevtotal += (double)atol(line.substr(0, line.find(" ")).c_str());
+	  ++i;
+	}
     }
-  total = atoi(user.c_str()) + atoi(nice.c_str()) + atoi(sys.c_str()) + atoi(idle.c_str());
-  this->previdle = atoi(idle.c_str());
-  this->prevtotal = total;
 }
 
 void		Cpu::setParams(int nbline)
 {
   std::ifstream	file;
   std::string	line;
-  std::string	user;
-  std::string	nice;
-  std::string	sys;
-  std::string	idle;
-  int		total;
   int		i = 0;
 
   file.open("/proc/stat");
@@ -215,16 +213,17 @@ void		Cpu::setParams(int nbline)
 	  ++i;
 	}
       line = line.substr(5, line.size() - 5);
-      user = line.substr(0, line.find(" "));
+      this->total = (double)atol(line.substr(0, line.find(" ")).c_str());
       line = line.substr(line.find(" ") + 1, line.size());
-      nice = line.substr(0, line.find(" "));
+      this->total += (double)atol(line.substr(0, line.find(" ")).c_str());
       line = line.substr(line.find(" ") + 1, line.size());
-      sys = line.substr(0, line.find(" "));
-      line = line.substr(line.find(" ") + 1, line.size());
-      idle = line.substr(0, line.find(" "));
-      file.close();
+      this->val = this->total += (double)atol(line.substr(0, line.find(" ")).c_str());
+      i = 0;
+      while (i <= 6)
+	{
+	  line = line.substr(line.find(" ") + 1, line.size());
+	  this->total += (double)atol(line.substr(0, line.find(" ")).c_str());
+	  ++i;
+	}
     }
-  total = atoi(user.c_str()) + atoi(nice.c_str()) + atoi(sys.c_str()) + atoi(idle.c_str());
-  this->idle = atoi(idle.c_str());
-  this->total = total;
 }
