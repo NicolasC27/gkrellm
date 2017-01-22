@@ -15,18 +15,10 @@ class NetworkLoad : public IMonitorModule
  private:
   std::string _Iface;
 
-  size_t _MTUMET;
-
-  size_t _RXOK;
-  size_t _RXERR;
-  size_t _RXDRP;
-  size_t _RXOVR;
-
-  size_t _TXOK;
-  size_t _TXDRP;
-  size_t _TXERR;
-  size_t _TXOVR;
-
+  int	receive_bytes;
+  int 	receive_packets;
+  int 	trans_bytes;
+  int 	trans_packet;
   bool _status;
 
  public:
@@ -45,23 +37,15 @@ class NetworkLoad : public IMonitorModule
 
   const std::string &getIface() const;
 
-  size_t getMTUMET() const;
+  int getReceive_bytes() const;
 
-  size_t getRXOK() const;
+  int getReceive_packets() const;
 
-  size_t getRXERR() const;
+  int getTrans_bytes() const;
 
-  size_t getRXDRP() const;
+  int getTrans_packet() const;
 
-  size_t getRXOVR() const;
 
-  size_t getTXOK() const;
-
-  size_t getTXDRP() const;
-
-  size_t getTXERR() const;
-
-  size_t getTXOVR() const;
 };
 
 
