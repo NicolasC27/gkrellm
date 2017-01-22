@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sun Jan 22 03:45:14 2017 Manon Lacommare
+// Last update Sun Jan 22 03:49:27 2017 Manon Lacommare
 //
 
 #ifndef CPU_HPP_
@@ -13,7 +13,6 @@
 # include <iostream>
 # include <string>
 # include <fstream>
-# include <cstdlib>
 # include <thread>
 # include <chrono>
 # include "IMonitorModule.hpp"
