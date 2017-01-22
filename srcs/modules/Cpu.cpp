@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sun Jan 22 06:57:56 2017 Manon Lacommare
+// Last update Sun Jan 22 07:10:39 2017 Manon Lacommare
 //
 
 #include "../../includes/modules/Cpu.hpp"
@@ -158,13 +158,11 @@ void		Cpu::setActivity()
   for (int i = this->getNbCpu(); i > 0; --i)
     {
       setPrevParams(i);
-      do
-	{
-	  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-	  setParams(i);
-	}
-      while ((this->total == this->prevtotal) || (this->val == this->prevval));
-      this->cpu[i] = (this->val - this->prevval) / (this->total - this->prevtotal) * 100;
+      std::this_thread::sleep_for(std::chrono::milliseconds(200));
+      setParams(i);
+      if((this->total == this->prevtotal) || (this->val == this->prevval))
+	continue;
+      this->cpu[i] = (int)(this->val - this->prevval) / (this->total - this->prevtotal) * 100;
     }
 }
 
