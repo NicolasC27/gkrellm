@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sun Jan 22 07:28:05 2017 Manon Lacommare
+// Last update Sun Jan 22 08:00:09 2017 Manon Lacommare
 //
 
 #include "../../includes/modules/Cpu.hpp"
@@ -22,8 +22,6 @@ Cpu::Cpu()
   this->cpu.resize(this->getNbCpu());
   this->prevtotal.resize(this->getNbCpu());
   this->prevval.resize(this->getNbCpu());
-  setPrevParams(this->getNbCpu());
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
   this->setActivity();
 }
 
@@ -159,13 +157,14 @@ void		Cpu::setNbCpu()
 void		Cpu::setActivity()
 {
   this->setNbCpu();
-  for (int i = this->getNbCpu(); i > 0; --i)
+  setPrevParams(this->getNbCpu());
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  for (int i = 0; i < this->getNbCpu(); ++i)
     {
       setParams(i);
       if((this->total == this->prevtotal[i]) || (this->val == this->prevval[i]))
 	continue;
       this->cpu[i] = (this->val - this->prevval[i]) / (this->total - this->prevtotal[i]) * 100;
-      std::cout << "i : " << i << " " << this->cpu[i] << std::endl;
     }
 }
 
@@ -179,7 +178,8 @@ void		Cpu::setPrevParams(int nbline)
   file.open("/proc/stat");
   if (file.is_open())
     {
-      while (i <= nbline)
+      getline(file, line);
+      while (i < nbline)
 	{
 	  getline(file, line);
 	  line = line.substr(5, line.size() - 5);
@@ -188,6 +188,7 @@ void		Cpu::setPrevParams(int nbline)
 	  this->prevtotal[i] += (double)atol(line.substr(0, line.find(" ")).c_str());
 	  line = line.substr(line.find(" ") + 1, line.size());
 	  this->prevval[i] = this->prevtotal[i] += (double)atol(line.substr(0, line.find(" ")).c_str());
+	  j = 0;
 	  while (j <= 6)
 	    {
 	      line = line.substr(line.find(" ") + 1, line.size());
@@ -208,6 +209,7 @@ void		Cpu::setParams(int nbline)
   file.open("/proc/stat");
   if (file.is_open())
     {
+      getline(file, line);
       while (i <= nbline)
 	{
 	  getline(file, line);
