@@ -78,10 +78,3 @@ int NetworkLoad::getTrans_packet() const
 {
   return trans_packet;
 }
-
-int main()
-{
-  NetworkLoad load;
-
-  load.update();
-}
