@@ -8,7 +8,7 @@
 // Last update Sun Jan 22 02:48:35 2017 Manon Lacommare
 //
 
-#include "Cpu.hpp"
+#include "../../includes/modules/Cpu.hpp"
 
 Cpu::Cpu()
 {
