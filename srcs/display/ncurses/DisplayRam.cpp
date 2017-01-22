@@ -1,5 +1,11 @@
 //
-// Created by cheval_8 on 1/21/17.
+// DisplayRam.cpp for DisplayRam.cpp in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/srcs/display/ncurses
+//
+// Made by Nicolas Chevalier
+// Login   <cheval_8@epitech.net>
+//
+// Started on  Sun Jan 22 09:06:57 2017 Nicolas Chevalier
+// Last update Sun Jan 22 09:06:58 2017 Nicolas Chevalier
 //
 #include "../../../includes/display/ncurses/DisplayRam.hpp"
 #include "../../../includes/modules/Ram.hpp"

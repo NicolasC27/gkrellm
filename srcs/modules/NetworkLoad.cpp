@@ -1,5 +1,11 @@
 //
-// Created by cheval_8 on 1/21/17.
+// NetworkLoad.cpp for Networkload.cpp in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/srcs/modules
+//
+// Made by Nicolas Chevalier
+// Login   <cheval_8@epitech.net>
+//
+// Started on  Sun Jan 22 09:06:09 2017 Nicolas Chevalier
+// Last update Sun Jan 22 09:06:10 2017 Nicolas Chevalier
 //
 #include <fstream>
 #include <iostream>

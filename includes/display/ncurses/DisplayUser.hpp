@@ -1,5 +1,11 @@
 //
-// Created by cheval_8 on 1/21/17.
+// DisplayUser.hpp for DisplayUser.hpp in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/includes/display/ncurses
+//
+// Made by Nicolas Chevalier
+// Login   <cheval_8@epitech.net>
+//
+// Started on  Sun Jan 22 09:05:47 2017 Nicolas Chevalier
+// Last update Sun Jan 22 09:05:47 2017 Nicolas Chevalier
 //
 #ifndef CPP_GKRELLM_DISPLAYUSER_HPP
 # define CPP_GKRELLM_DISPLAYUSER_HPP

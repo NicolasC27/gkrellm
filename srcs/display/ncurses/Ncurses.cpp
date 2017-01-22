@@ -1,5 +1,11 @@
 //
-// Created by cheval_8 on 1/21/17.
+// Ncurses.cpp for Displayncurses.cpp in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/srcs/display/ncurses
+//
+// Made by Nicolas Chevalier
+// Login   <cheval_8@epitech.net>
+//
+// Started on  Sun Jan 22 09:07:23 2017 Nicolas Chevalier
+// Last update Sun Jan 22 09:07:24 2017 Nicolas Chevalier
 //
 
 #include "../../../includes/display/ncurses/Ncurses.hpp"

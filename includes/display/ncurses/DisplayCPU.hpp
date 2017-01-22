@@ -1,22 +1,22 @@
 //
-// DisplayBatterie.hpp for DisplayBatterie in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/includes/display/ncurses
+// DisplayCPU.hpp for DisplayCPU.hpp in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/includes/display/ncurses
 //
 // Made by Nicolas Chevalier
 // Login   <cheval_8@epitech.net>
 //
-// Started on  Sun Jan 22 09:04:50 2017 Nicolas Chevalier
-// Last update Sun Jan 22 09:04:51 2017 Nicolas Chevalier
+// Started on  Sun Jan 22 09:05:03 2017 Nicolas Chevalier
+// Last update Sun Jan 22 09:05:03 2017 Nicolas Chevalier
 //
-#ifndef CPP_GKRELLM_DISPLAYBATTERIE_HPP
+#ifndef CPP_GKRELLM_DISPLAYCPU_HPP
 # define CPP_GKRELLM_DISPLAYBATTERIE_HPP
 
 #include <iostream>
 #include "Ncurses.hpp"
 #include "../IMonitorDisplay.hpp"
 
-#define DISPLAYBATTERIE_MODULE_NAME "DisplayBatterie"
+#define DISPLAYCPU_MODULE_NAME "DisplayCPU"
 
-class DisplayBatterie : public IMonitorDisplay, public Ncurses
+class DisplayCPU : public IMonitorDisplay, public Ncurses
 {
  private:
 
@@ -24,9 +24,9 @@ class DisplayBatterie : public IMonitorDisplay, public Ncurses
   WINDOW *window;
 
  public:
-  DisplayBatterie();
+  DisplayCPU();
 
-  virtual ~DisplayBatterie();
+  virtual ~DisplayCPU();
 
   void run();
 

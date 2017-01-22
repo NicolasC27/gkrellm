@@ -1,5 +1,11 @@
 //
-// Created by cheval_8 on 1/21/17.
+// DisplayNetwork.cpp for DisplayNetwork.cpp in /home/cheval_8/rendu/Pool_cpp/cpp_gkrellm/srcs/display/ncurses
+//
+// Made by Nicolas Chevalier
+// Login   <cheval_8@epitech.net>
+//
+// Started on  Sun Jan 22 09:06:50 2017 Nicolas Chevalier
+// Last update Sun Jan 22 09:06:50 2017 Nicolas Chevalier
 //
 #include "../../../includes/display/ncurses/DisplayNetwork.hpp"
 #include "../../../includes/modules/Ram.hpp"
