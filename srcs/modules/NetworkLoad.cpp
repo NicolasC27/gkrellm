@@ -7,7 +7,9 @@
 #include "../../includes/modules/NetworkLoad.hpp"
 
 NetworkLoad::NetworkLoad() : _status(true)
-{}
+{
+
+}
 
 
 NetworkLoad::~NetworkLoad()
@@ -30,8 +32,8 @@ void NetworkLoad::update()
 
       std::getline(file, line);
       std::istringstream os(line);
-      os >> _Iface >> _MTUMET >> _RXDRP >> _RXERR >> _RXOK >> _RXOVR >> _TXDRP
-	 >> _TXERR >> _TXOK >> _TXOVR;
+      os >> _Iface >> _MTUMET >> _RXOK >> _RXERR >> _RXDRP >> _RXOVR >> _TXOK
+	 >> _TXERR >> _TXDRP >> _TXOVR;
     }
 }
 
