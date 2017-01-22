@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sun Jan 22 03:39:16 2017 Manon Lacommare
+// Last update Sun Jan 22 03:45:14 2017 Manon Lacommare
 //
 
 #ifndef CPU_HPP_
@@ -16,9 +16,9 @@
 # include <cstdlib>
 # include <thread>
 # include <chrono>
-//# include "IMonitorModule.hpp"
+# include "IMonitorModule.hpp"
 
-class			Cpu// : public IMonitorModule
+class			Cpu : public IMonitorModule
 {
   std::string		name;
   std::string		desc;
