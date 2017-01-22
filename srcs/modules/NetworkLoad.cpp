@@ -100,9 +100,3 @@ size_t NetworkLoad::getTXOVR() const
 {
   return _TXOVR;
 }
-
-int main()
-{
-  NetworkLoad test;
-  test.update();
-}
