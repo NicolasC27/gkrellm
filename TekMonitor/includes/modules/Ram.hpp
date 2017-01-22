@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 12:14:00 2017 Manon Lacommare
-// Last update Sat Jan 21 22:21:37 2017 valentin gerard
+// Last update Sun Jan 22 09:52:11 2017 valentin gerard
 //
 
 #ifndef RAM_HPP_
@@ -15,7 +15,6 @@
 # include <iostream>
 # include <string>
 # include <fstream>
-# include <cstdlib>
 
 class			Ram : public IMonitorModule
 {

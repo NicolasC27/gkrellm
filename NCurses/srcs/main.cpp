@@ -33,20 +33,6 @@ void exec_ncurses()
 
 int main(int argc, char *argv[])
 {
-  if (argc == 2 &&
-      argv[1][0] == '-' &&
-      (argv[1][1] == 'T' || argv[1][1] == 'G') &&
-      !argv[1][2])
-  {
-      if (argv[1][1] == 'T')
-	exec_ncurses();
-  }
-  else
-  {
-    std::cout << "Error : Bad usage." << std::endl << std::endl <<
-                 "Usage : ./gkrellm <displaytype>" << std::endl <<
-                 " -G  : Graphical mode" << std::endl <<
-                 " -T  : Terminal mode" << std::endl;
-  }
+  exec_ncurses();
   return 0;
 }

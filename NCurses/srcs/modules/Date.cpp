@@ -5,11 +5,10 @@
 // Login   <gerard_v@epitech.net>
 // 
 // Started on  Sat Jan 21 15:17:16 2017 valentin gerard
-// Last update Sat Jan 21 15:17:16 2017 valentin gerard
+// Last update Sun Jan 22 09:49:30 2017 valentin gerard
 //
 
 #include <iostream>
-#include <ctime>
 #include <string>
 #include <fstream>
 #include "../../includes/modules/Date.hpp"
