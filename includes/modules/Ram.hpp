@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 12:14:00 2017 Manon Lacommare
-// Last update Sat Jan 21 17:56:55 2017 Manon Lacommare
+// Last update Sat Jan 21 22:21:37 2017 valentin gerard
 //
 
 #ifndef RAM_HPP_
@@ -33,7 +33,7 @@ public:
   Ram &			operator=(const Ram &);
 
   virtual std::string	getName() const;
-  virtual std::string	getDesc() const;
+  virtual std::string	getDescription() const;
   virtual bool		getStatus() const;
   int			getTotalRam() const;
   int			getAvailRam() const;

@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 11:34:18 2017 Manon Lacommare
-// Last update Sat Jan 21 16:31:11 2017 valentin gerard
+// Last update Sat Jan 21 22:21:20 2017 valentin gerard
 //
 
 #include "../../includes/modules/User.hpp"
@@ -48,7 +48,7 @@ std::string	User::getName() const
   return (this->name);
 }
 
-std::string	User::getDesc() const
+std::string	User::getDescription() const
 {
   return (this->desc);
 }

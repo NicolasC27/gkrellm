@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 11:41:03 2017 Manon Lacommare
-// Last update Sat Jan 21 15:36:26 2017 Manon Lacommare
+// Last update Sat Jan 21 22:21:03 2017 valentin gerard
 //
 
 #ifndef USER_HPP_
@@ -31,7 +31,7 @@ public:
   User &		operator=(const User &);
 
   virtual std::string	getName() const;
-  virtual std::string	getDesc() const;
+  virtual std::string	getDescription() const;
   virtual bool		getStatus() const;  
   std::string		getUserName() const;
   std::string		getMachineName() const;

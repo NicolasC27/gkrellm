@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 12:13:43 2017 Manon Lacommare
-// Last update Sat Jan 21 16:50:23 2017 Manon Lacommare
+// Last update Sat Jan 21 22:21:51 2017 valentin gerard
 //
 
 #include "../../includes/modules/Ram.hpp"
@@ -50,7 +50,7 @@ std::string	Ram::getName() const
   return (this->name);
 }
 
-std::string	Ram::getDesc() const
+std::string	Ram::getDescription() const
 {
   return (this->desc);
 }

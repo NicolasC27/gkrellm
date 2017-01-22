@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 16:57:15 2017 Manon Lacommare
-// Last update Sat Jan 21 21:55:34 2017 Manon Lacommare
+// Last update Sun Jan 22 02:12:49 2017 valentin gerard
 //
 
 #ifndef CPU_HPP_
@@ -39,7 +39,7 @@ public:
   Cpu &			operator=(const Cpu &);
 
   virtual std::string	getName() const;
-  virtual std::string	getDesc() const;
+  virtual std::string	getDescription() const;
   virtual bool		getStatus() const;
   std::string		getModel() const;
   float			getFrequency() const;

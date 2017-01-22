@@ -5,7 +5,7 @@
 // Login   <lacomm_m@epitech.net>
 // 
 // Started on  Sat Jan 21 17:20:38 2017 Manon Lacommare
-// Last update Sat Jan 21 21:54:17 2017 Manon Lacommare
+// Last update Sun Jan 22 02:12:28 2017 valentin gerard
 //
 
 #include "Cpu.hpp"
@@ -54,7 +54,7 @@ std::string	Cpu::getName() const
   return (this->name);
 }
 
-std::string	Cpu::getDesc() const
+std::string	Cpu::getDescription() const
 {
   return (this->desc);
 }
